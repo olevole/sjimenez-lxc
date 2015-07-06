@@ -231,7 +231,7 @@ Puppet::Type.type(:lxc_interface).provide(:interface) do
   def ipv4_gateway=(value)
     begin
       define_container
-      @container.clear_config_item("lxc.network.#{@resource[:index]}.ipv4_gateway")
+      @container.clear_config_item("lxc.network.#{@resource[:index]}.ipv4.gateway")
       @container.set_config_item("lxc.network.#{@resource[:index]}.ipv4.gateway",value)
       @container.save_config
       restart if @resource[:restart]
